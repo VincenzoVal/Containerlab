@@ -1,0 +1,25 @@
+name: dualsubnet
+
+topology:
+  nodes:
+    clientA:
+      kind: linux
+      image: ghcr.io/hellt/network-multitool
+      exec:
+        - sleep 2
+        - ip addr add 10.10.1.2/24 dev eth1
+        - ip route replace default via 10.10.1.1
+      clientB:
+      kind: linux
+      image: ghcr.io/hellt/network-multitool
+      exec:
+        - sleep2
+        - ip addr add 10.10.2.2/24 dev eth1
+        - ip route replace default via 10.10.2.1
+    router:
+      kind: nokia_srlinux
+      image: ghcr.io/nokia/srlinux
+      startup-config: ./configs/router_startup.cli
+  links:
+   - endpoints: ["clientA:eth1","router:e1-1"]
+   - endpoints: ["clientB:eth1","router:e1-2"]
