@@ -1,0 +1,22 @@
+name: dualsubnet
+
+topology:
+
+ nodes:
+  
+  clientA:
+   kind: linux
+   image: ghcr.io/hellt/network-multitool
+  
+  clientB:
+   kind: linux
+   image: ghcr.io/hellt/network-multitool
+  
+  router:
+   kind: nokia_srlinux
+   image: ghcr.io/nokia/srlinux
+ 
+ links:
+  - endpoints: ["clientA:eth1","router:e1-1"]
+  - endpoints: ["clientB:eth1","router:e1-2"]
+  	
