@@ -51,3 +51,4 @@ network-instance default {
       next-hop-group subnet 
     }
   }
+}
