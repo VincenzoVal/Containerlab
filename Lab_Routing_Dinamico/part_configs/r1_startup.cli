@@ -31,3 +31,4 @@ network-instance default {
       next-hop-group ospf_domain 
     }
   }
+}
