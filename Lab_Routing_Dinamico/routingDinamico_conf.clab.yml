@@ -22,22 +22,22 @@ topology:
         - ip route replace default via 192.168.2.1
     r1:
       kind: nokia_srlinux
-      startup-config: ./config/r1_startup.cli
+      startup-config: ./configs/r1_startup.cli
     c0:
       kind: nokia_srlinux
-      startup-config: ./config/c0_startup.cli
+      startup-config: ./configs/c0_startup.cli
     c1:
       kind: nokia_srlinux
-      startup-config: ./config/c1_startup.cli
+      startup-config: ./configs/c1_startup.cli
     c2:
       kind: nokia_srlinux
-      startup-config: ./config/c2_startup.cli
+      startup-config: ./configs/c2_startup.cli
     c3:
       kind: nokia_srlinux
-      startup-config: ./config/c3_startup.cli
+      startup-config: ./configs/c3_startup.cli
     c4:
       kind: nokia_srlinux
-      startup-config: ./config/c4_startup.cli
+      startup-config: ./configs/c4_startup.cli
 
   links:
     - endpoints: ["clientA:eth1","r1:e1-1"]
