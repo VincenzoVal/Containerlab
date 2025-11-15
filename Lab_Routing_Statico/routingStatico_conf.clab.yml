@@ -1,0 +1,32 @@
+name: routingStatico
+
+topology:
+  kinds:
+    linux:
+      image: ghcr.io/hellt/network-multitool
+    nokia_srlinux:
+      image: ghcr.io/nokia/srlinux
+  nodes:
+    clientA:
+      kind: linux
+      exec:
+       - sleep 2
+       - ip addr add 10.10.1.2/24 dev eth1
+       - ip route replace default via 10.10.1.1
+    clientB:
+      kind: linux
+      exec: 
+       - sleep 2
+       - ip addr add 10.10.2.2/24 dev eth1
+       - ip route replace default via 10.10.2.1
+    router1:
+      kind: nokia_srlinux
+      startup-config: ./configs/router1_startup.cli
+    router2:
+      kind: nokia_srlinux
+      startup-config: ./configs/router2_startup.cli
+  links:
+   - endpoints: ["clientA:eth1","router1:e1-2"]
+   - endpoints: ["clientB:eth1","router2:e1-2"]
+   - endpoints: ["router1:e1-1","router2:e1-1"]
+      
