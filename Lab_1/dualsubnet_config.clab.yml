@@ -9,7 +9,7 @@ topology:
         - sleep 2
         - ip addr add 10.10.1.2/24 dev eth1
         - ip route replace default via 10.10.1.1
-      clientB:
+    clientB:
       kind: linux
       image: ghcr.io/hellt/network-multitool
       exec:
