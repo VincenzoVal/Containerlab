@@ -52,9 +52,15 @@ routing-policy {
 			action { policy-result accept }
 		}
 	}
-	policy import_all {
-		statement 10 { action policy-result accept }
-		
+	policy mod_local_pref {
+		statement 10 { 
+			action { 
+				policy-result accept
+				bgp { 
+					local_preference { set 200 }
+				}
+			}
+		}
 	}
 }
 network-instance default {
@@ -94,7 +100,7 @@ network-instance default {
 				admin-state enable
 				afi-safi ipv4-unicast {
 					export-policy export_subnet1
-					import-policy import_all
+					import-policy mod_local_pref
 				}
 			}
 			neighbor 1.1.2.1 {
