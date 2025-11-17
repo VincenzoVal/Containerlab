@@ -102,6 +102,10 @@ network-instance default {
 			neighbor 10.0.35.1 {
 				peer-as 65010
 				peer-group "eBGP peers di AS100"
+				failure-detection {
+					enable-bfd true
+					fast-failover true
+				}
 			}
 			neighbor 10.0.65.1 {
 				peer-as 65030
