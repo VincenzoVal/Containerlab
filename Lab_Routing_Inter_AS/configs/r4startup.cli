@@ -56,13 +56,23 @@ routing-policy {
 	policy export_to_AS300 {
 		statement 10 {
 			match { prefix-set AS100_subnets }
-			action { policy-result accept }
+			action { 
+				policy-result accept 
+				bgp { 
+					med { set 150 }
+				}
+			}
 		}
 	}
 	policy export_to_AS100 {
 		statement 10 {
 			match { prefix-set AS300_subnets }
-			action { policy-result accept }
+			action { 
+				policy-result accept 
+				bgp { 
+					med { set 150 }
+				}
+			}
 		}
 	}
 }
