@@ -49,7 +49,12 @@ routing-policy {
 	policy export_subnet1 {
 		statement 10 {
 			match { prefix-set subnet1 }
-			action { policy-result accept }
+			action { 
+				policy-result accept 
+				bgp { 
+					as-path { prepend as-number auto repeat-n 3}
+				}
+			}
 		}
 	}
 	policy import_all {
