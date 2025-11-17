@@ -1,0 +1,76 @@
+name: routingInterAS
+
+topology:
+  kinds:
+    linux:
+      image: ghcr.io/hellt/network-multitool
+    nokia_srlinux:
+      image: ghcr.io/nokia/srlinux
+
+  nodes:
+    Host1:
+      kind: linux
+      exec:
+        - sleep 2
+        - ip addr add 192.168.1.2/24 dev eth1
+        - ip route replace default via 192.168.1.1
+    Host2:
+      kind: linux
+      exec:
+        - sleep 2
+        - ip addr add 192.168.2.2/24 dev eth1
+        - ip route replace default via 192.168.2.1
+    r1:
+      kind: nokia_srlinux
+      startup-config: ./filter_configs/r1_startup.cli
+    r2:
+      kind: nokia_srlinux
+      startup-config: ./filter_configs/r2_startup.cli
+    r3:
+      kind: nokia_srlinux
+      startup-config: ./filter_configs/r3_startup.cli
+    r4:
+      kind: nokia_srlinux
+      startup-config: ./filter_configs/r4_startup.cli
+    r5:
+      kind: nokia_srlinux
+      startup-config: ./filter_configs/r5_startup.cli
+    r6:
+      kind: nokia_srlinux
+      startup-config: ./filter_configs/r6_startup.cli
+    r7:
+      kind: nokia_srlinux
+      startup-config: ./filter_configs/r7_startup.cli
+    r8:
+      kind: nokia_srlinux
+      startup-config: ./filter_configs/r8_startup.cli
+    rr1:
+      kind: nokia_srlinux
+      startup-config: ./filter_configs/rr1_startup.cli
+    rr2:
+      kind: nokia_srlinux
+      startup-config: ./filter_configs/rr2_startup.cli
+
+
+
+  links:
+    - endpoints: ["Host1:eth1","r1:e1-1"]
+    - endpoints: ["r1:e1-2","rr1:e1-1"]
+    - endpoints: ["r1:e1-3","rr2:e1-1"]
+    - endpoints: ["r2:e1-1","rr1:e1-2"]
+    - endpoints: ["r2:e1-2","rr2:e1-2"]
+    - endpoints: ["r2:e1-3","r4:e1-2"]
+    - endpoints: ["r2:e1-4","r5:e1-2"]
+    - endpoints: ["r3:e1-1","rr1:e1-3"]
+    - endpoints: ["r3:e1-2","rr2:e1-3"]
+    - endpoints: ["r3:e1-3","r4:e1-3"]
+    - endpoints: ["r3:e1-4","r5:e1-3"]
+    - endpoints: ["r4:e1-1","r5:e1-1"]
+    - endpoints: ["Host2:eth1","r8:e1-1"]
+    - endpoints: ["r8:e1-2","r6:e1-1"]
+    - endpoints: ["r8:e1-3","r7:e1-1"]
+    - endpoints: ["r6:e1-2","r7:e1-2"]
+    - endpoints: ["r6:e1-3","r4:e1-4"]
+    - endpoints: ["r6:e1-4","r5:e1-4"]
+    - endpoints: ["r7:e1-3","r4:e1-5"]
+    - endpoints: ["r7:e1-4","r5:e1-5"]
