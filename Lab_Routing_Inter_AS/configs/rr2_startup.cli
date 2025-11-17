@@ -80,6 +80,10 @@ network-instance default {
 			neighbor 1.1.1.3 {
 				peer-as 65010
 				peer-group "Clients"
+				failure-detection {
+					enable-bfd true
+					fast-failover true
+				}
 			}
 		}
 	}
