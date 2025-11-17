@@ -57,7 +57,7 @@ routing-policy {
 			action { 
 				policy-result accept
 				bgp { 
-					local_preference { set 200 }
+					local-preference { set 200 }
 				}
 			}
 		}
