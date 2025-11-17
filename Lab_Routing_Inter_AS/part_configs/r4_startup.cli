@@ -50,5 +50,5 @@ network-instance default {
 	interface ethernet-1/3.0 { }
 	interface ethernet-1/4.0 { }
 	interface ethernet-1/5.0 { }
-	}
+}
 
