@@ -40,6 +40,4 @@ network-instance default {
 	interface ethernet-1/2.0 { }
 	interface ethernet-1/3.0 { }
 	interface ethernet-1/4.0 { }
-	interface system0.0 { }
-}
 }
