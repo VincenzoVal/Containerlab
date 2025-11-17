@@ -1,0 +1,90 @@
+interface ethernet-1/1 {
+	subinterface 0 {
+		admin-state enable
+		ipv4 {
+			admin-state enable
+			address 10.0.78.1/30
+		}
+	}
+}
+interface ethernet-1/2 {
+	subinterface 0 {
+		admin-state enable
+		ipv4 {
+			admin-state enable
+			address 10.0.67.2/30
+		}
+	}
+}
+interface ethernet-1/3 {
+	subinterface 0 {
+		admin-state enable
+		ipv4 {
+			admin-state enable
+			address 10.0.74.1/30
+		}
+	}
+}
+interface ethernet-1/4 {
+	subinterface 0 {
+		admin-state enable
+		ipv4 {
+			admin-state enable
+			address 10.0.75.1/30
+		}
+	}
+}
+routing-policy {
+	prefix-set subnet2 { prefix 192.168.2.0/24 mask-length-range exact }
+	policy export_subnet2 {
+		statement 10 {
+			match { prefix-set subnet2 }
+			action { policy-result accept }
+		}
+	}
+	policy import_all {
+		statement 10 { action policy-result accept }
+	}
+}
+network-instance default {
+	interface ethernet-1/1.0 { }
+	interface ethernet-1/2.0 { }
+	interface ethernet-1/3.0 { }
+	interface ethernet-1/4.0 { }
+	protocols {
+		bgp {
+			autonomous-system 65030
+			router-id 3.3.3.7
+			afi-safi ipv4-unicast { admin-state enable }
+			group "iBGP peers" {
+				admin-state enable
+				next-hop-self true
+			}
+
+			group "eBGP peers" {
+				admin-state enable
+				afi-safi ipv4-unicast {
+					export-policy export_subnet2
+					import-policy import_all
+				}
+			}
+			neighbor 10.0.67.1 {
+				peer-as 65030
+				peer-group "iBGP peers"
+			}
+
+			neighbor 10.0.78.2 {
+				peer-as 65030
+				peer-group "iBGP peers"
+			}
+			neighbor 10.0.74.2 {
+				peer-as 65020
+				peer-group "eBGP peers"
+			}
+			neighbor 10.0.75.2 {
+				peer-as 65020
+				peer-group "eBGP peers"
+			}
+		}
+	}
+}
