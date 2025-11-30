@@ -94,6 +94,10 @@ network-instance default {
 				admin-state enable
 				next-hop-self true
 				transport { local-address 1.1.1.3 }
+				failure-detection {
+					enable-bfd true
+					fast-failover true
+				}
 			}
 
 			group "eBGP peers" {
@@ -101,6 +105,10 @@ network-instance default {
 				afi-safi ipv4-unicast {
 					export-policy export_subnet1
 					import-policy mod_local_pref
+				}
+				failure-detection {
+					enable-bfd true
+					fast-failover true
 				}
 			}
 			neighbor 1.1.2.1 {
