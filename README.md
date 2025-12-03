@@ -51,13 +51,13 @@ Connessione tra 3 Autonomous Systems distinti:
 * Applicazione di filtri sulle rotte e BFD per la convergenza rapida.
 
 File utili:
-  * [Topologia Logica](./Lab_Routing_InterAS/topologia.png)
-  * [Schema delle sessioni BGP](./Lab_Routing_InterAS/SessioniBGP.png)
-  * [File YAML](./Lab_Routing_InterAS/routingInterAS.clab.yml)
-  * [Cartella con configurazioni iniziali](./Lab_Routing_InterAS/part_configs)
-  * [File YAML con configurazione filtri](./Lab_Routing_InterAS/routingInterAS_filter.clab.yml)
-  * [Cartella con configurazioni filtri](./Lab_Routing_InterAS/filter_configs)
-  * [File pcap analisi traffico su Route Reflector](./Lab_Routing_InterAS/Route_Reflector.pcap)
-  * [File YAML con configuraizone completa (modifca attributi BGP e BFD)](./Lab_Routing_InterAS/routingInterAS_conf.clab.yml)
-  * [Cartella con configurazioni complete](./Lab_Routing_InterAS/configs)
-  * [File pcap analisi traffico con attributi modificati](./Lab_Routing_InterAS/Path_Selection.pcap)
+  * [Topologia Logica](./Lab_Routing_Inter_AS/topologia.png)
+  * [Schema delle sessioni BGP](./Lab_Routing_Inter_AS/SessioniBGP.png)
+  * [File YAML](./Lab_Routing_InterAS/routingInte_rAS.clab.yml)
+  * [Cartella con configurazioni iniziali](./Lab_Routing_Inter_AS/part_configs)
+  * [File YAML con configurazione filtri](./Lab_Routing_Inter_AS/routingInterAS_filter.clab.yml)
+  * [Cartella con configurazioni filtri](./Lab_Routing_Inter_AS/filter_configs)
+  * [File pcap analisi traffico su Route Reflector](./Lab_Routing_Inter_AS/Route_Reflector.pcap)
+  * [File YAML con configuraizone completa (modifca attributi BGP e BFD)](./Lab_Routing_Inter_AS/routingInterAS_conf.clab.yml)
+  * [Cartella con configurazioni complete](./Lab_Routing_Inter_AS/configs)
+  * [File pcap analisi traffico con attributi modificati](./Lab_Routing_Inter_AS/Path_Selection.pcap)
