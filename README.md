@@ -58,6 +58,6 @@ File utili:
   * [File YAML con configurazione filtri](./Lab_Routing_Inter_AS/routingInterAS_filter.clab.yml)
   * [Cartella con configurazioni filtri](./Lab_Routing_Inter_AS/filter_configs)
   * [File pcap analisi traffico su Route Reflector](./Lab_Routing_Inter_AS/Route_Reflector.pcap)
-  * [File YAML con configuraizone completa (modifca attributi BGP e BFD)](./Lab_Routing_Inter_AS/routingInterAS_conf.clab.yml)
+  * [File YAML con configurazione completa (modifca attributi BGP e BFD)](./Lab_Routing_Inter_AS/routingInterAS_conf.clab.yml)
   * [Cartella con configurazioni complete](./Lab_Routing_Inter_AS/configs)
   * [File pcap analisi traffico con attributi modificati](./Lab_Routing_Inter_AS/Path_Selection.pcap)
