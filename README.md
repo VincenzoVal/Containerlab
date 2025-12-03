@@ -53,7 +53,7 @@ Connessione tra 3 Autonomous Systems distinti:
 File utili:
   * [Topologia Logica](./Lab_Routing_Inter_AS/topologia.png)
   * [Schema delle sessioni BGP](./Lab_Routing_Inter_AS/SessioniBGP.png)
-  * [File YAML](./Lab_Routing_InterAS/routingInte_rAS.clab.yml)
+  * [File YAML](./Lab_Routing_InterAS/routingInter_AS.clab.yml)
   * [Cartella con configurazioni iniziali](./Lab_Routing_Inter_AS/part_configs)
   * [File YAML con configurazione filtri](./Lab_Routing_Inter_AS/routingInterAS_filter.clab.yml)
   * [Cartella con configurazioni filtri](./Lab_Routing_Inter_AS/filter_configs)
